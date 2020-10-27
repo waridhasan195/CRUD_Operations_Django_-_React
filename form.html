@@ -1,0 +1,53 @@
+            <div>
+                <form onSubmit={this.handleFormSubmit}>
+                    <label>
+                        Title
+                        <Input name="title" placeholder="Title" />
+                    </label>
+                    <label>
+                        Content
+                        <Input name="content" placeholder="Write content . . . . " />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        
+        
+---------------------------------------------------
+
+import React from 'react'
+import { Form, Input, Button } from 'antd';
+const FormItem = Form.Item;
+
+class CustomForm extends React.Component{
+
+    handleFormSubmit = (event) => {
+
+        event.preventDefault();
+        const title = event.target.elements.title.value;
+        const content = event.target.elements.content.value;
+
+        console.log(title, content)
+    }
+
+    render(){
+        return(
+            <div>
+                <Form onSubmit={this.handleFormSubmit}>
+                    <FormItem>
+                        {/* <label><h3>Title</h3></label> */}
+                        <Input name="title" placeholder="Title" />
+                    </FormItem>
+                    <FormItem>
+                        {/* <label><h3>Content</h3></label> */}
+                        <Input name="content" placeholder="Write content . . . . " />
+                    </FormItem>
+                    <FormItem>
+                        <Button type="primary" htmlType="submit">Submit</Button>
+                    </FormItem>
+                </Form>
+            </div>
+        )
+    }
+}
+export default CustomForm
